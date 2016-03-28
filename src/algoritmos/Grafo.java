@@ -7,7 +7,7 @@ package algoritmos;
 
 /**
  *
- * @author Ana Lucia
+ * @author Daniel
  */
 public class Grafo {
     private final int tam = 0;
@@ -16,7 +16,7 @@ public class Grafo {
         return tam;
     }
 
-    public int[] adj(int u) {
+    public Iterable<Integer> adj(int u) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

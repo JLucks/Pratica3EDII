@@ -6,8 +6,8 @@
 package base;
 
 import algoritmos.Grafo;
-import java.util.LinkedList;
 
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 /**
@@ -79,10 +79,6 @@ public class BuscaEmLargura {
         }
     }
     
-    public boolean possuiCaminho(int v) {
-        return marcado[v];
-    }
-    
     public Iterable<Integer> menorCaminho(int v) {
         if (!possuiCaminho(v)) return null;
         Stack<Integer> path = new Stack<>();
@@ -91,5 +87,13 @@ public class BuscaEmLargura {
             path.push(x);
         path.push(x);
         return path;
+    }
+    
+    public boolean possuiCaminho(int v) {
+        return marcado[v];
+    }
+    
+    public int distancia(int v){
+        return distancia[v];
     }
 }
