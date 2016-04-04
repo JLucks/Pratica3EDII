@@ -17,13 +17,24 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="294" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
               <Component id="bttVoltar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="296" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="234" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jcbOrigem" min="-2" pref="223" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jcbDestino" max="32767" attributes="0"/>
+                  </Group>
                   <Component id="jScrollPane2" alignment="1" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" alignment="1" pref="613" max="32767" attributes="0"/>
               </Group>
@@ -36,10 +47,20 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="234" max="-2" attributes="0"/>
-              <EmptySpace pref="40" max="32767" attributes="0"/>
-              <Component id="jScrollPane2" min="-2" pref="114" max="-2" attributes="0"/>
+              <EmptySpace pref="20" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbOrigem" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbDestino" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="84" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="bttVoltar" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="bttVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -98,6 +119,55 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttVoltarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Monospaced" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Origem:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jcbOrigem">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Monospaced" size="14" style="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;&gt;(this.grafo.vertices())"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Monospaced" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Destino:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jcbDestino">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Monospaced" size="14" style="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;&gt;(this.grafo.vertices())"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Monospaced" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ir"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

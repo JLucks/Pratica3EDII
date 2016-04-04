@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package base;
+package algoritmos;
 
-import algoritmos.Grafo;
-import algoritmos.Aresta;
-import algoritmos.ListaPrioridade;
+import base.Grafo;
+import base.Aresta;
+import base.ListaPrioridade;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 /**
  *
@@ -16,7 +18,7 @@ import java.util.Stack;
 public class Dijkstra {
     private double[] distancia;
     private Aresta[] adjacente;
-    private ListaPrioridade<Double> lp;
+    private ListaPrioridade lp;
     
     public Dijkstra(Grafo G, int v){
         //for(Aresta e : G.getAresta()){
@@ -31,12 +33,12 @@ public class Dijkstra {
         }
         distancia[v] = 0.0;
         
-        lp = new ListaPrioridade<Double>(G.tam());
+        lp = new ListaPrioridade();
         lp.inserir(v, distancia(v));
         while(!lp.vazio()){
             int temp = lp.delMin();
-            //for(Aresta e : G.adj(v))
-            //    relaxar(e);
+            for(Aresta e : G.adj(temp))
+                relaxar(e);
         }
     }
     
@@ -60,9 +62,9 @@ public class Dijkstra {
         return distancia[v] < Double.POSITIVE_INFINITY;
     }
     
-    public Iterable<Aresta> menorCaminho(int v){
+    public List<Aresta> menorCaminho(int v){
         if(!possuiCaminho(v)) return null;
-        Stack<Aresta> caminho  = new Stack<>();
+        List<Aresta> caminho  = new ArrayList<>();
         for(Aresta e = adjacente[v]; e != null; e = adjacente[e.de()]){
             caminho.add(e);
         }

@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package base;
+package algoritmos;
 
-import algoritmos.Grafo;
+import base.Aresta;
+import base.Grafo;
 /**
  *
  * @author Daniel
@@ -22,9 +23,9 @@ public class BuscaEmProfundidade {
     private void bEmProfundiade(Grafo G, int v){
         cont++;
         marcado[v] = true;
-        for(int w : G.adj(v)){
-            if(!marcado[w]){
-                bEmProfundiade(G, w);
+        for(Aresta w : G.adj(v)){
+            if(!marcado[w.para()]){
+                bEmProfundiade(G, w.para());
             }
         }
     }

@@ -5,54 +5,42 @@
  */
 package base;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 /**
  *
- * @author Jorge
+ * @author Daniel
  */
 public class Grafo {
-    private int tam;
-    private Vertice V[];
-    private Aresta E[];
-
-    /**
-     * @return the tam
-     */
-    public int getTam() {
+    private int tam = 0;
+    private Aresta[] arestas;
+    private String[] valores;
+    
+    public Grafo(int tam, Aresta[] arestas, String[] valores){
+        this.tam = tam;
+        this.arestas = arestas;
+        this.valores = valores;
+    }
+    
+    public String[] vertices(){
+        return valores;
+    }
+    
+    public int tam(){
         return tam;
     }
 
-    /**
-     * @param tam the tam to set
-     */
-    public void setTam(int tam) {
-        this.tam = tam;
+    public Aresta[] getAresta(){
+        return arestas;
     }
-
-    /**
-     * @return the V
-     */
-    public Vertice[] getV() {
-        return V;
-    }
-
-    /**
-     * @param V the V to set
-     */
-    public void setV(Vertice[] V) {
-        this.V = V;
-    }
-
-    /**
-     * @return the E
-     */
-    public Aresta[] getE() {
-        return E;
-    }
-
-    /**
-     * @param E the E to set
-     */
-    public void setE(Aresta[] E) {
-        this.E = E;
+    
+    public List<Aresta> adj(int u) {
+        List<Aresta> adjs = new ArrayList<>();
+        for(int i = 0;i < tam;i++)
+            if(arestas[i].de() == u)
+                adjs.add(arestas[i]);
+        return adjs;
     }
 }

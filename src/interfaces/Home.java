@@ -5,10 +5,15 @@
  */
 package interfaces;
 
+import base.Grafo;
 import base.Main;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import outros.ReaderDoc;
 
 /**
  *
@@ -20,8 +25,20 @@ public class Home extends javax.swing.JPanel {
      * Creates new form Home
      */
     private JFileChooser JFCFiles;
+    private Grafo grafo;
     
     public Home() {
+        JFCFiles = new JFileChooser();
+        FileFilter filter = new FileNameExtensionFilter("TxT file", new String[]{"txt"});   //Mostrar e escolher somentes txts
+        JFCFiles.setDialogTitle("Selecionar Arquivo");
+        JFCFiles.setFileFilter(filter);
+        JFCFiles.addChoosableFileFilter(filter);
+        JFCFiles.setAcceptAllFileFilterUsed(false);
+        initComponents();
+    }
+    
+    public Home(Grafo grafo) {
+        this.grafo = grafo;
         JFCFiles = new JFileChooser();
         FileFilter filter = new FileNameExtensionFilter("TxT file", new String[]{"txt"});   //Mostrar e escolher somentes txts
         JFCFiles.setDialogTitle("Selecionar Arquivo");
@@ -202,27 +219,33 @@ public class Home extends javax.swing.JPanel {
     private void bttSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttSelecionarActionPerformed
         if(JFCFiles.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
             jtfEndereco.setText(JFCFiles.getSelectedFile().getAbsolutePath());
+            try {
+                grafo = ReaderDoc.getWords(jtfEndereco.getText());
+                System.out.println("Carregado");
+            } catch (FileNotFoundException ex) {
+                System.out.println("Erro");
+            }
         }
     }//GEN-LAST:event_bttSelecionarActionPerformed
 
     private void bttIr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttIr1ActionPerformed
         this.setVisible(false);
         Main.janela.remove(this);
-        Main.janela.add(new Problema1());
+        Main.janela.add(new Problema1(this.grafo));
         Main.janela.setVisible(true);
     }//GEN-LAST:event_bttIr1ActionPerformed
 
     private void bttIr2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttIr2ActionPerformed
         this.setVisible(false);
         Main.janela.remove(this);
-        Main.janela.add(new Problema2());
+        Main.janela.add(new Problema2(this.grafo));
         Main.janela.setVisible(true);
     }//GEN-LAST:event_bttIr2ActionPerformed
 
     private void bttIr3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttIr3ActionPerformed
         this.setVisible(false);
         Main.janela.remove(this);
-        Main.janela.add(new Problema3());
+        Main.janela.add(new Problema3(this.grafo));
         Main.janela.setVisible(true);
     }//GEN-LAST:event_bttIr3ActionPerformed
 

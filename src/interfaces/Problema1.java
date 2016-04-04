@@ -5,6 +5,7 @@
  */
 package interfaces;
 
+import base.Grafo;
 import base.Main;
 
 /**
@@ -16,7 +17,9 @@ public class Problema1 extends javax.swing.JPanel {
     /**
      * Creates new form Problema1
      */
-    public Problema1() {
+    private Grafo grafo;
+    public Problema1(Grafo grafo) {
+        this.grafo = grafo;
         initComponents();
     }
 
@@ -87,7 +90,7 @@ public class Problema1 extends javax.swing.JPanel {
     private void bttVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttVoltarActionPerformed
         this.setVisible(false);
         Main.janela.remove(this);
-        Main.janela.add(new Home());
+        Main.janela.add(new Home(this.grafo));
         Main.janela.setVisible(true);
     }//GEN-LAST:event_bttVoltarActionPerformed
 

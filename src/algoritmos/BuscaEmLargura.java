@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package base;
+package algoritmos;
 
-import algoritmos.Grafo;
+import base.Aresta;
+import base.Grafo;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 /**
@@ -29,7 +31,7 @@ public class BuscaEmLargura {
         bEmLargura(G, v);
     }
     
-    public BuscaEmLargura(Grafo G, Iterable<Integer> vertices){
+    public BuscaEmLargura(Grafo G, List<Integer> vertices){
         marcado = new boolean[G.tam()];
         adjacente = new int[G.tam()];
         distancia = new int[G.tam()];
@@ -46,18 +48,18 @@ public class BuscaEmLargura {
         
         while(!q.isEmpty()){
             int u = q.remove();
-            for(int w : G.adj(u)){
-                if(!marcado[w]){
-                    adjacente[w] = u;
-                    distancia[w] = distancia[u]+1;
-                    marcado[w] = true;
-                    q.add(w);
+            for(Aresta w : G.adj(u)){
+                if(!marcado[w.para()]){
+                    adjacente[w.para()] = u;
+                    distancia[w.para()] = distancia[u]+1;
+                    marcado[w.para()] = true;
+                    q.add(w.para());
                 }
             }
         }
     }
     
-    private void bEmLargura(Grafo G, Iterable<Integer> vertices){
+    private void bEmLargura(Grafo G, List<Integer> vertices){
         Queue<Integer> q = new LinkedList<>();
         
        for (int v : vertices) {
@@ -68,18 +70,18 @@ public class BuscaEmLargura {
         
         while(!q.isEmpty()){
             int u = q.remove();
-            for(int w : G.adj(u)){
-                if(!marcado[w]){
-                    adjacente[w] = u;
-                    distancia[w] = distancia[u]+1;
-                    marcado[w] = true;
-                    q.add(w);
+            for(Aresta w : G.adj(u)){
+                if(!marcado[w.para()]){
+                    adjacente[w.para()] = u;
+                    distancia[w.para()] = distancia[u]+1;
+                    marcado[w.para()] = true;
+                    q.add(w.para());
                 }
             }
         }
     }
     
-    public Iterable<Integer> menorCaminho(int v) {
+    public List<Integer> menorCaminho(int v) {
         if (!possuiCaminho(v)) return null;
         Stack<Integer> path = new Stack<>();
         int x;

@@ -1,44 +1,25 @@
-Alemanha
-Angelim
-Anil
-Anjo da Guarda
-Areinha
-Bacanga
-Bequimao
-Calhau
-Cidade Operaria
-Cohafuma
-Cohatrac IV
-Cohama
-Divineia
-Fatima
-Forquilha
-Ipase
-Jaracati
-Jardim America
-Joao Paulo
-Madre Deus
-Maiobao
-Maracana
-Monte Castelo
-Olho d agua
-Outeiro da Cruz
-Pedrinhas
-Ponta d Areia
-Quebra Pote
-Quintas do Calhau
-Renascenca
-Sa Viana
-Sao Cristovao
-Sao Francisco
-Sao Raimundo
-Sol e Mar
-Turu
-Vicente Fialho
-Vila Embratel
-Vila Funil
-Vila Luizao
-Vila Nova
-Vila Palmeira
-Vila Sarney
-Vinhais
+12
+Alemanha#Angelim#6
+Angelim#Anil#3
+Anil#Anjo.da.Guarda#15
+Anjo.da.Guarda#Areinha#8
+Areinha#Bacanga#4
+Bacanga#Bequimao#10
+Bequimao#Calhau#8
+Calhau#Cidade.Operaria#20
+Cidade.Operaria#Cohafuma#19
+Cohafuma#Cohatrac.IV#12
+Cohatrac.IV#Cohama#7
+Cohama#Alemanha#4
+Alemanha#Anil#4
+Angelim#Anjo.da.Guarda#18
+Anil#Areinha#7
+Anjo.da.Guarda#Bacanga#3
+Areinha#Bequimao#8
+Bacanga#Calhau#10
+Bequimao#Cidade.Operaria#15
+Calhau#Cohafuma#4
+Cidade.Operaria#Cohatrac.IV#11
+Cohafuma#Cohama#7
+Cohatrac.IV#Alemanha#10
+Cohama#Angelim#4
