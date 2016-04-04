@@ -5,6 +5,9 @@
  */
 package interfaces;
 
+import algoritmos.BuscaEmProfundidade;
+import algoritmos.Dijkstra;
+import base.Aresta;
 import base.Grafo;
 import base.Main;
 
@@ -21,6 +24,7 @@ public class Problema1 extends javax.swing.JPanel {
     public Problema1(Grafo grafo) {
         this.grafo = grafo;
         initComponents();
+        setResu();
     }
 
     /**
@@ -94,7 +98,15 @@ public class Problema1 extends javax.swing.JPanel {
         Main.janela.setVisible(true);
     }//GEN-LAST:event_bttVoltarActionPerformed
 
-
+    private void setResu(){
+        Dijkstra dij = new Dijkstra(this.grafo, 0);
+        String[] vertices = this.grafo.vertices();  
+        jtaResult.setText("");
+        for(Aresta a: dij.caminhoMinimo()){
+            jtaResult.setText(vertices[a.de()]+"->"+vertices[a.para()]+"\n"+jtaResult.getText());
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bttVoltar;
     private javax.swing.JScrollPane jScrollPane1;

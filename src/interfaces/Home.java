@@ -5,6 +5,7 @@
  */
 package interfaces;
 
+import base.Aresta;
 import base.Grafo;
 import base.Main;
 import java.io.FileNotFoundException;
@@ -222,6 +223,9 @@ public class Home extends javax.swing.JPanel {
             try {
                 grafo = ReaderDoc.getWords(jtfEndereco.getText());
                 System.out.println("Carregado");
+                printInformations();
+                printListAdj();
+                printMatrizAdj();
             } catch (FileNotFoundException ex) {
                 System.out.println("Erro");
             }
@@ -249,6 +253,38 @@ public class Home extends javax.swing.JPanel {
         Main.janela.setVisible(true);
     }//GEN-LAST:event_bttIr3ActionPerformed
 
+    public void printInformations(){
+        System.out.println("Grafo:");
+        System.out.println("Numero:"+this.grafo.vertices().length);
+        System.out.println("Arestas:"+this.grafo.getAresta().length);
+    }
+    
+    public void printListAdj(){
+        System.out.println("Lista de Adjacencias");
+        for(int i = 0; i < this.grafo.vertices().length; i++){
+            System.out.print(this.grafo.vertices()[i]+"->...");
+            for(Aresta a : this.grafo.adj(i))
+                System.out.print(this.grafo.vertices()[a.para()]+"->");
+            System.out.println();
+        }
+    }
+    
+    public void printMatrizAdj(){
+        System.out.println("Matriz de Adjacencias");
+        System.out.print("\t");
+        for(int i = 0; i < this.grafo.vertices().length; i++)
+            System.out.print(i+"\t");
+        System.out.println();
+        for(int i = 0; i < this.grafo.vertices().length; i++)
+            System.out.print("-------");
+        System.out.println();
+        for(int i = 0; i < this.grafo.vertices().length; i++){
+            System.out.print(i+"|\t");
+            for(Aresta a : this.grafo.adj(i))
+                System.out.print(a.para()+"\t");
+            System.out.println();
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bttIr1;

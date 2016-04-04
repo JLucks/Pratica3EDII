@@ -9,8 +9,8 @@ import base.Grafo;
 import base.Aresta;
 import base.ListaPrioridade;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Stack;
 /**
  *
  * @author Daniel
@@ -60,6 +60,14 @@ public class Dijkstra {
     
     public boolean possuiCaminho(int v){
         return distancia[v] < Double.POSITIVE_INFINITY;
+    }
+    
+    public List<Aresta> caminhoMinimo(){
+        List<Aresta> caminho = new ArrayList<>();
+        for(Aresta e = adjacente[adjacente.length - 1]; e != null; e = adjacente[e.de()]){
+            caminho.add(e);
+        }
+        return caminho;
     }
     
     public List<Aresta> menorCaminho(int v){

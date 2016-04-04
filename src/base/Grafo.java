@@ -38,7 +38,7 @@ public class Grafo {
     
     public List<Aresta> adj(int u) {
         List<Aresta> adjs = new ArrayList<>();
-        for(int i = 0;i < tam;i++)
+        for(int i = 0;i < arestas.length;i++)
             if(arestas[i].de() == u)
                 adjs.add(arestas[i]);
         return adjs;

@@ -13,14 +13,21 @@ import base.Grafo;
  */
 public class BuscaEmProfundidade {
     private boolean[] marcado;
+    private int vertices[];
     private int cont;
     
-    public BuscaEmProfundidade(Grafo G, int v){
+    public BuscaEmProfundidade(Grafo G){
         marcado = new boolean[G.tam()];
-        bEmProfundiade(G,v);
+        vertices = new int[G.tam()];
+        for(int i = 0; i < G.tam(); i++)
+            marcado[i] = false;
+        for(int i = 0; i < G.tam(); i++)
+            if(!marcado[i])
+                bEmProfundiade(G,i);
     }
     
     private void bEmProfundiade(Grafo G, int v){
+        vertices[cont] = v;
         cont++;
         marcado[v] = true;
         for(Aresta w : G.adj(v)){
@@ -34,7 +41,7 @@ public class BuscaEmProfundidade {
         return marcado[v];
     }
     
-    public int cont(){
-        return cont;
+    public int[] vertices(){
+        return vertices;
     }
 }
