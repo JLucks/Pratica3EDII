@@ -24,7 +24,6 @@ public class Problema1 extends javax.swing.JPanel {
     public Problema1(Grafo grafo) {
         this.grafo = grafo;
         initComponents();
-        setResu();
     }
 
     /**
@@ -41,6 +40,9 @@ public class Problema1 extends javax.swing.JPanel {
         bttVoltar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtaResult = new javax.swing.JTextArea();
+        jcbOrigem = new javax.swing.JComboBox<>(this.grafo.vertices());
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
@@ -63,30 +65,57 @@ public class Problema1 extends javax.swing.JPanel {
         jtaResult.setRows(5);
         jScrollPane2.setViewportView(jtaResult);
 
+        jcbOrigem.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        jLabel1.setText("Origem:");
+
+        jButton1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        jButton1.setText("Ir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 294, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(75, 75, 75)
                 .addComponent(bttVoltar)
-                .addGap(296, 296, 296))
+                .addGap(227, 227, 227))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane2)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE))
                 .addGap(28, 28, 28))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(182, 182, 182)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jcbOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(200, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jcbOrigem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(bttVoltar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bttVoltar)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -98,8 +127,12 @@ public class Problema1 extends javax.swing.JPanel {
         Main.janela.setVisible(true);
     }//GEN-LAST:event_bttVoltarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        setResu();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void setResu(){
-        Dijkstra dij = new Dijkstra(this.grafo, 0);
+        Dijkstra dij = new Dijkstra(this.grafo, jcbOrigem.getSelectedIndex());
         String[] vertices = this.grafo.vertices();  
         jtaResult.setText("");
         for(Aresta a: dij.caminhoMinimo()){
@@ -109,9 +142,12 @@ public class Problema1 extends javax.swing.JPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bttVoltar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JComboBox<String> jcbOrigem;
     private javax.swing.JTextArea jtaResult;
     // End of variables declaration//GEN-END:variables
 }

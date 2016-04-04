@@ -46,9 +46,11 @@ public class ListaPrioridade{
 
     public void diminuirChave(int w, double d) {
         Camp novo = new Camp(w,d);
+        int inde = 0;
         for(Camp c: list)
             if(c.getW() == w)
-                list.remove(c);        
+                inde = list.indexOf(c);
+        list.remove(inde);
         list.add(novo);
     }
 }

@@ -270,18 +270,35 @@ public class Home extends javax.swing.JPanel {
     }
     
     public void printMatrizAdj(){
+        boolean flag = true;
+        System.out.println("Mapeamento");
+        for(int i = 0; i < this.grafo.vertices().length; i++)
+            System.out.println(this.grafo.vertices()[i]+"="+i);
         System.out.println("Matriz de Adjacencias");
-        System.out.print("\t");
+        System.out.print("\t\t");
         for(int i = 0; i < this.grafo.vertices().length; i++)
             System.out.print(i+"\t");
         System.out.println();
         for(int i = 0; i < this.grafo.vertices().length; i++)
-            System.out.print("-------");
+            System.out.print("---------");
         System.out.println();
         for(int i = 0; i < this.grafo.vertices().length; i++){
-            System.out.print(i+"|\t");
-            for(Aresta a : this.grafo.adj(i))
-                System.out.print(a.para()+"\t");
+            System.out.print(i+"\t|\t");
+            for(int j = 0; j < this.grafo.vertices().length; j++){
+                for(Aresta a: this.grafo.adj(i)){
+                    if(a.para() == j){
+                        flag = false;
+                        break;
+                    }
+                }
+                if(flag){
+                    System.out.print("0\t");
+                }
+                else{
+                    System.out.print("1\t");
+                }
+                flag = true;
+            }
             System.out.println();
         }
     }
